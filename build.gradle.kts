@@ -2,6 +2,7 @@ plugins {
 	java
 	id("org.springframework.boot") version "3.3.4"
 	id("io.spring.dependency-management") version "1.1.6"
+	id("com.google.cloud.tools.jib") version "3.4.0"
 }
 
 group = "com.auff"
@@ -51,3 +52,16 @@ dependencyManagement {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+jib {
+	from {
+		image = "openjdk:21-alpine"
+	}
+	to {
+		image = "ineedmore/user-service:latest"
+	}
+	container {
+		mainClass = "com/auff/user/UserApplication"
+	}
+}
+
