@@ -1,0 +1,13 @@
+# Ignore gradle properties file
+gradle.properties
+
+# Ignore build directory
+/build
+
+# Ignore IDE-specific files
+/.idea
+*.iml
+
+# Ignore other sensitive or unnecessary files
+.DS_Store
+.env
