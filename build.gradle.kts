@@ -55,13 +55,14 @@ tasks.withType<Test> {
 
 jib {
 	from {
-		image = "openjdk:21-alpine"
+		image = "amazoncorretto:21-alpine-jdk"
 	}
 	to {
-		image = "ineedmore/user-service:latest"
-	}
-	container {
-		mainClass = "com/auff/user/UserApplication"
+		image = "ineedmore/auff:latest"
+		auth {
+			username = findProperty("dockerHubUsername").toString()
+			password = findProperty("dockerHubPassword").toString()
+		}
 	}
 }
 
