@@ -60,8 +60,8 @@ jib {
 	to {
 		image = "ineedmore/auff:latest"
 		auth {
-			username = findProperty("dockerHubUsername").toString()
-			password = findProperty("dockerHubPassword").toString()
+			username = System.getenv("DOCKER_HUB_USERNAME")
+			password = System.getenv("DOCKER_HUB_PASSWORD")
 		}
 	}
 }
